@@ -36,11 +36,11 @@ public class VehicleController
 		return orderRepository.findByVehicleId(vehicleId, pageable);
 	}
 	
-	@GetMapping("/vehicle/{vehicleId}/orders/{orderId}")
-	public Page<Order> getAnOrderByOrderId(@PathVariable ("vehicleId")Long vehicleId, @PathVariable ("orderId")Long orderId, Pageable pageable)
-	{
-		return orderRepository.findById(orderId);
-	}
+//	@GetMapping("/vehicle/{vehicleId}/orders/{orderId}")
+//	public Page<Order> getAnOrderByOrderId(@PathVariable ("vehicleId")Long vehicleId, @PathVariable ("orderId")Long orderId, Pageable pageable)
+//	{
+//		return orderRepository.findById(orderId);
+//	}
 	
 	@PostMapping("/vehicle/{vehicleId}/orders")
 	public Order createComment(@PathVariable ("vehicleId")Long vehicleId, @Valid @RequestBody Order order)
