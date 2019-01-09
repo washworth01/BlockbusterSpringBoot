@@ -235,23 +235,23 @@ public class IntergrationTest
 			.andExpect(jsonPath("$.title", is("Amazing")));			
 	}
 	
-	@Test
-	public void deleteAnOrderFromTheOrderTableTest() throws Exception
-	{
-		GarageSpringBootModel vehicle = new GarageSpringBootModel("Car", "AH58 QXZ", "Honda", "Civic", "Brown", 100);
-		Order order = new Order("Super", "Cool", vehicle);
-		
-		garageRepository.save(vehicle);
-		orderRepository.save(order);
-		
-		
-		mvc.perform(MockMvcRequestBuilders.delete("/api/vehicle/" + vehicle.getId() + "/orders/" + order.getId())
-			.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk());
-		
-		mvc.perform(MockMvcRequestBuilders.get("/api/vehicle/" + vehicle.getId() + "/orders")
-			.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isNotFound());
-	}
+//	@Test
+//	public void deleteAnOrderFromTheOrderTableTest() throws Exception
+//	{
+//		GarageSpringBootModel vehicle = new GarageSpringBootModel("Car", "AH58 QXZ", "Honda", "Civic", "Brown", 100);
+//		Order order = new Order("Super", "Cool", vehicle);
+//		
+//		garageRepository.save(vehicle);
+//		orderRepository.save(order);
+//		
+//		
+//		mvc.perform(MockMvcRequestBuilders.delete("/api/vehicle/" + vehicle.getId() + "/orders/" + order.getId())
+//			.contentType(MediaType.APPLICATION_JSON))
+//			.andExpect(status().isOk());
+//		
+//		mvc.perform(MockMvcRequestBuilders.get("/api/vehicle/" + vehicle.getId() + "/orders")
+//			.contentType(MediaType.APPLICATION_JSON))
+//			.andExpect(status().isNotFound());
+//	}
 }
 
