@@ -1,4 +1,4 @@
-package com.ashworth.william.springboot.database.garage.garageSpringBootDatabaseApp.exception;
+package com.ashworth.william.springboot.database.blockbuster.blockbusterSpringBootDatabaseApp.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

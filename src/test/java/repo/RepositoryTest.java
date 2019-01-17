@@ -13,12 +13,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ashworth.william.springboot.database.garage.garageSpringBootDatabaseApp.GarageSpringBootDatabaseAppApplication;
-import com.ashworth.william.springboot.database.garage.garageSpringBootDatabaseApp.model.GarageSpringBootModel;
-import com.ashworth.william.springboot.database.garage.garageSpringBootDatabaseApp.repository.GarageSpringBootRepository;
+import com.ashworth.william.springboot.database.blockbuster.blockbusterSpringBootDatabaseApp.BlockbusterSpringBootDatabaseAppApplication;
+import com.ashworth.william.springboot.database.blockbuster.blockbusterSpringBootDatabaseApp.model.BlockbusterSpringBootModel;
+import com.ashworth.william.springboot.database.blockbuster.blockbusterSpringBootDatabaseApp.repository.BlockbusterSpringBootRepository;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {GarageSpringBootDatabaseAppApplication.class})
+@ContextConfiguration(classes = {BlockbusterSpringBootDatabaseAppApplication.class})
 @DataJpaTest
 public class RepositoryTest
 {
@@ -26,12 +26,12 @@ public class RepositoryTest
 	private TestEntityManager entityManager;
 	
 	@Autowired
-	private GarageSpringBootRepository garageRepo;
+	private BlockbusterSpringBootRepository garageRepo;
 	
 	@Test
 	public void retrieveByIdTest()
 	{
-		GarageSpringBootModel model1 = new GarageSpringBootModel("Car","AH58 QXZ","Honda","Civic","Brown",100);
+		BlockbusterSpringBootModel model1 = new BlockbusterSpringBootModel("Car","AH58 QXZ","Honda","Civic","Brown",100);
 		entityManager.persist(model1);
 		entityManager.flush();
 		assertTrue(garageRepo.findById(model1.getId()).isPresent());
@@ -40,12 +40,12 @@ public class RepositoryTest
 	@Test
 	public void findByType()
 	{
-		List<GarageSpringBootModel> vehicles;
-		GarageSpringBootModel model2 = new GarageSpringBootModel("Car","AH58 QXZ","Honda","Civic","Brown",100);
+		List<BlockbusterSpringBootModel> vehicles;
+		BlockbusterSpringBootModel model2 = new BlockbusterSpringBootModel("Car","AH58 QXZ","Honda","Civic","Brown",100);
 		entityManager.persist(model2);
 		entityManager.flush();
 		vehicles = garageRepo.findByType("Car");
-		for(GarageSpringBootModel g : vehicles)
+		for(BlockbusterSpringBootModel g : vehicles)
 		{
 			assertEquals(g.getType(), "Car");
 		}
